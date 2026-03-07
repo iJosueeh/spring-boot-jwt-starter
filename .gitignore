@@ -1,33 +1,50 @@
-HELP.md
+### Build output
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+build/
+out/
 
-### STS ###
+### Maven
+.mvn/timing.properties
+
+### Logs
+*.log
+logs/
+
+### Environment and secrets
+.env
+.env.*
+!.env.template
+
+### Spring Boot
+*.pid
+*.seed
+*.pid.lock
+
+### OS files
+.DS_Store
+Thumbs.db
+
+### Eclipse / STS
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
+### IntelliJ IDEA
+.idea/
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+### VS Code
 .vscode/
+
+### NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
