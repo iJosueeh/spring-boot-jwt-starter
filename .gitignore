@@ -13,6 +13,7 @@ logs/
 ### Environment and secrets
 .env
 .env.*
+!.env.example
 !.env.template
 
 ### Spring Boot
@@ -40,7 +41,11 @@ Thumbs.db
 *.ipr
 
 ### VS Code
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
 
 ### NetBeans
 nbproject/private/
