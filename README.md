@@ -33,6 +33,9 @@ Configura estas variables para ejecutar la app en local (perfil `dev`):
 - `JWT_SECRET`
 - `JWT_REFRESH_SECRET`
 
+Tambien puedes crear un archivo `.env` en la raiz del proyecto (ya esta habilitado en `application.yml`).
+Puedes partir de `\.env.example` o `\.env.template` y copiarlo como `.env`.
+
 Ejemplo (PowerShell):
 
 ```powershell
@@ -42,6 +45,29 @@ $env:DB_PASSWORD="postgres"
 $env:JWT_SECRET="change-this-secret-key-at-least-32-characters"
 $env:JWT_REFRESH_SECRET="change-this-refresh-secret-key-at-least-32-chars"
 ```
+
+Ejemplo de `.env`:
+
+```dotenv
+DB_URL=jdbc:postgresql://localhost:5432/jwtstarter
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+JWT_SECRET=change-this-secret-key-at-least-32-characters
+JWT_REFRESH_SECRET=change-this-refresh-secret-key-at-least-32-chars
+```
+
+## CORS
+
+La configuracion CORS es global y se aplica desde `SecurityConfig`.
+
+Variables opcionales:
+
+- `CORS_ALLOWED_ORIGINS` (por defecto: `http://localhost:3000,http://localhost:5173`)
+- `CORS_ALLOWED_METHODS` (por defecto: `GET,POST,PUT,PATCH,DELETE,OPTIONS`)
+- `CORS_ALLOWED_HEADERS` (por defecto: `*`)
+- `CORS_EXPOSED_HEADERS` (por defecto: `Authorization`)
+- `CORS_ALLOW_CREDENTIALS` (por defecto: `true`)
+- `CORS_MAX_AGE` (por defecto: `3600`)
 
 ## Ejecutar proyecto
 
