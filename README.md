@@ -34,7 +34,7 @@ Configura estas variables para ejecutar la app en local (perfil `dev`):
 - `JWT_REFRESH_SECRET`
 
 Tambien puedes crear un archivo `.env` en la raiz del proyecto (ya esta habilitado en `application.yml`).
-Puedes partir de `\.env.example` o `\.env.template` y copiarlo como `.env`.
+Puedes partir de `.env.example` o `.env.template` y copiarlo como `.env`.
 
 Ejemplo (PowerShell):
 
@@ -71,6 +71,12 @@ Variables opcionales:
 
 ## Ejecutar proyecto
 
+Activa el perfil `dev` para desarrollo local:
+
+```powershell
+$env:SPRING_PROFILES_ACTIVE="dev"
+```
+
 ```powershell
 ./mvnw.cmd spring-boot:run
 ```
@@ -80,6 +86,8 @@ Aplicacion por defecto en:
 - `http://localhost:8080`
 
 Swagger:
+
+Disponible solo cuando `APP_DOCS_PUBLIC_ENABLED=true`.
 
 - `http://localhost:8080/swagger-ui/index.html`
 - `http://localhost:8080/v3/api-docs`
@@ -101,7 +109,7 @@ Los tests usan perfil `test` con base en memoria H2 (`src/test/resources/applica
 
 ### User (protegido con JWT)
 
-- `GET /api/usuarios/{id}`
+- `GET /api/users/{id}`
 
 ## Pruebas rapidas con cURL
 

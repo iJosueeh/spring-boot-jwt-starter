@@ -2,6 +2,7 @@ package com.template.jwtstarter.user.services;
 
 import org.springframework.stereotype.Service;
 
+import com.template.jwtstarter.common.exception.ResourceNotFoundException;
 import com.template.jwtstarter.user.dto.UserResponse;
 import com.template.jwtstarter.user.entity.User;
 import com.template.jwtstarter.user.repository.UserRepository;
@@ -21,7 +22,7 @@ public class UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> {
                     log.warn("Usuario con id {} no encontrado", id);
-                    throw new RuntimeException("User invalid");
+                    throw new ResourceNotFoundException("User not found");
                 });
         log.info("Usuario encontrado: {}", user.getUsername());
         return mapTUserResponse(user);

@@ -5,10 +5,6 @@ spring:
   config:
     import: optional:file:.env[.properties]
 
-  profiles:
-    active:
-      - dev
-
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
@@ -17,11 +13,11 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: none
+    show-sql: false
     properties:
       hibernate:
-        "[format_sql]": true
+        "[format_sql]": false
 
   jackson:
     serialization:
@@ -40,14 +36,14 @@ logging:
   level:
     root: INFO
     "[org.springframework.security]": WARN
-    "[org.hibernate.SQL]": DEBUG
-    "[org.hibernate.type.descriptor.sql.BasicBinder]": TRACE
-    "[com.tuempresa.tuproject]": DEBUG
+    "[org.hibernate.SQL]": WARN
 
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%level] [%thread] %logger{36} - %msg%n"
 
 app:
+  docs:
+    public-enabled: ${APP_DOCS_PUBLIC_ENABLED:false}
   cors:
     allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173}
     allowed-methods: ${CORS_ALLOWED_METHODS:GET,POST,PUT,PATCH,DELETE,OPTIONS}
