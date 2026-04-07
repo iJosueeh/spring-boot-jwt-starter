@@ -1,14 +1,16 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "main", "dev" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_run:
+    workflows: ["Java CI with Maven"]
+    types: [completed]
+    branches: ["main", "dev"]
+  workflow_dispatch:
 
 jobs:
-
-  build:
+  docker-build:
+    name: docker-build
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
     runs-on: ubuntu-latest
 

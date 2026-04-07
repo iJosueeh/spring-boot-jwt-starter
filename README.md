@@ -1,5 +1,7 @@
 # Spring Boot JWT Starter
 
+[![CI](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml/badge.svg)](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml)
+
 Starter base para autenticacion JWT usando Spring Boot, Spring Security y JPA.
 
 ## Stack
@@ -165,3 +167,7 @@ Authorization: Bearer <JWT_TOKEN>
 - Mejorar manejo de excepciones por tipo (401, 403, 404, 422).
 - Agregar migraciones (Flyway o Liquibase) para ambientes reales.
 - Endurecer configuracion de `application-prod.yml` para produccion.
+
+## Branch protection recomendada
+
+Consulta la configuracion sugerida en `.github/branch-protection.md`.
